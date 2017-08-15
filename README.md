@@ -7,3 +7,6 @@ This repo holds associated documents with tutorials on youtube channel: [Stevo D
 
 ### security
 * [Linux Ops Tips & Tricks - 01 - security/01 Man in the middle with fifo netcat and tee](https://youtu.be/YIieJQ1m3bE) / [README](./security/01man_in_the_middle_with_fifo_tee/README.md)
+
+### OS
+* [Linux Ops Tips & Tricks - os/01 - Installing Kali Linux](https://youtu.be/0s4SZ3VeW5Q) [README](./os/01_installing_kali_linux/README.md)

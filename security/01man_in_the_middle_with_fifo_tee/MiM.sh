@@ -4,7 +4,7 @@ mkfifo ${fifo}
 
 cleanup() {
     rm -fv ${fifo}
-    kill ${webserver_pid}
+    pkill -e -f "python -m SimpleHTTPServer ${srv_port}"
 }
 
 change_stuff() {
@@ -21,12 +21,12 @@ changed_log="changed.log"
 webserver_log="webserver.log"
 >${to_log}
 >${from_log}
->${webserver_log}
 >${changed_log}
 trap "cleanup" EXIT
 
 echo "Starting Web Server"
-python -m SimpleHTTPServer 8000 &> ${webserver_log} &
+python -m SimpleHTTPServer ${srv_port} 2>&1 | tee ${webserver_log} &
+sleep 2
 webserver_pid=$!
 
 echo "Send traffic to: localhost:${intercept_port}"
@@ -35,8 +35,7 @@ while true; do
     cat ${fifo} \
         | nc -v -l -p ${intercept_port} \
         | tee -a ${to_log} \
-        | nc localhost ${srv_port} \
+        | nc 127.0.0.1 ${srv_port} \
         | tee -a ${from_log} \
-        | tee -a ${changed_log} > ${fifo} \
-
+        | tee -a ${changed_log} > ${fifo} 
 done

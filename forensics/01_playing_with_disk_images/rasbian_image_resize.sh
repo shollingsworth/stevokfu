@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # set -x
 PART_SAVE_FILE="/tmp/partition_save_$(date +%s)"
-RESIZE_FUDGE_FACTOR="15"
 ASSUMED_SECTOR_SIZE="512"
 CMDARR=()
 test "$(whoami)" == "root" && {

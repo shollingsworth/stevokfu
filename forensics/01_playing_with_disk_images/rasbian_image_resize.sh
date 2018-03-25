@@ -44,8 +44,8 @@ EOF
 # BEGIN
 #=============================================
 
-# dev="${1}"
-dev="/dev/mmcblk0"
+dev="${1}"
+# dev="/dev/mmcblk0"
 test -z "${dev}" && usage "Missing device argument, try again"
 test -b "${dev}" || usage "Invalid Block device"
 test -f /sbin/resize2fs || usage "Missing resize binary: Make sure you have e2fsprogs installed!"

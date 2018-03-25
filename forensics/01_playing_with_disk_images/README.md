@@ -1,4 +1,4 @@
-# Playing with Disk Images / rasbian pi demo
+# Playing with Disk Images / rasbian pi demo - [Video](https://youtu.be/xciV2fexJ1g)
 ## Explaination of what [rasbian_image_resize.sh](rasbian_image_resize.sh) does
 ### Get minimum block size resize2fs things is appropriate
 * `resize2fs -P /dev/mmcblk0p2`
